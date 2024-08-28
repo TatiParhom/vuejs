@@ -1,47 +1,35 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <h1>Vue JS</h1>
+  <button @click="click">Кнопочка</button>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
+<script setup>
+  import { onMounted, ref } from 'vue'
+  // import Header from './components/Header.vue'
+  // import Counter from './components/Counter.vue'
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+  const counter = ref(0)
+  const message = ref('')
+  const checked = ref('true')
+  
+  function inc () {
+    counter.value++
   }
 
-  .logo {
-    margin: 0 2rem 0 0;
+  function click() { 
+    seen.value = !seen.value 
   }
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+  onMounted(() => {
+    console.log(counter)
+  })
+</script>
+
+<style>
+#app {
+  width: 900px;
+  margin: auto;
 }
 </style>
